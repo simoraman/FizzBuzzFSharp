@@ -4,34 +4,30 @@ open FsUnit
 
 [<TestFixture>]
 type ``When to Fizz`` ()=
-    [<Test>] 
-    member test.``One should not fizzbuzz``() = 
-        FizzBuzz 1 |> should equal "1"
-
-    [<Test>] 
-    member test.``3 should fizz``() = 
-        FizzBuzz 3 |> should equal "fizz"
-
-    [<Test>] 
-    member test.``5 should buzz``() = 
-        FizzBuzz 5 |> should equal "buzz"
+    
+    [<TestCaseAttribute 1>]
+    [<TestCaseAttribute 2>]
+    [<TestCaseAttribute 4>]
+    [<TestCaseAttribute 7>]
+    member test.``numbers not divisible by 3 or 5 print themselves``(number) = 
+        FizzBuzz number |> should equal (number.ToString()) 
 
     [<TestCaseAttribute 3>]
     [<TestCaseAttribute 6>]
     [<TestCaseAttribute 9>]
     [<TestCaseAttribute 12>]  
-    member test.``multiplies of 3 should fizz``(x) = 
+    member test.``multiples of 3 should fizz``(x) = 
         FizzBuzz x |> should equal "fizz"
 
     [<TestCaseAttribute 5>]
     [<TestCaseAttribute 10>]
     [<TestCaseAttribute 20>]  
-    member test.``multiplies of 5 should buzz``(x) = 
+    member test.``multiples of 5 should buzz``(x) = 
         FizzBuzz x |> should equal "buzz"
 
     [<TestCaseAttribute 15>]
     [<TestCaseAttribute 30>]
-    member test.``multiplies of 3 and 5 should fizzbuzz``(x) = 
+    member test.``multiples of 3 and 5 should fizzbuzz``(x) = 
         FizzBuzz x |> should equal "fizzbuzz"
 
 
