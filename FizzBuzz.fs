@@ -1,11 +1,11 @@
 ﻿module FizzBuzzer
 
 type System.Int32 with 
-    member x.is_multiply_of number = x % number = 0
+    member x.is_multiple_of number = x % number = 0
     
 let FizzBuzz (x:int) = 
-    if x.is_multiply_of 3 && x.is_multiply_of 5 then "fizzbuzz"
-    elif x.is_multiply_of 3 then "fizz"
-    elif x.is_multiply_of 5 then "buzz"
-    else x.ToString()
-    
+    match x.is_multiple_of 3, x.is_multiple_of 5 with
+    true, true -> "fizzbuzz"
+    |true, _ -> "fizz"
+    |_, true -> "buzz"
+    |_, _ -> string x

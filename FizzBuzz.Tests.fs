@@ -1,4 +1,5 @@
-﻿open FizzBuzzer
+﻿module FizzBuzz.Tests
+open FizzBuzzer
 open NUnit.Framework
 open FsUnit
 
